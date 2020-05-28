@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.funnypinky.hfk_app.AppController">
+   <children>
+      <BorderPane fx:id="mainLayout" prefHeight="800.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane maxWidth="-Infinity" prefWidth="250.0" styleClass="left_menu" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fillWidth="false" layoutX="30.0" layoutY="34.0" spacing="15.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+                     <children>
+                        <ToggleButton fx:id="patientBt" maxWidth="-Infinity" mnemonicParsing="false" styleClass="left_menubutton" text="Personenübersicht">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="leftmenu" />
+                           </toggleGroup></ToggleButton>
+                        <ToggleButton fx:id="deliveryBt" maxWidth="-Infinity" mnemonicParsing="false" styleClass="left_menubutton" text="Import HFK-Liste" toggleGroup="$leftmenu" />
+                        <ToggleButton fx:id="reportBt" maxHeight="-Infinity" mnemonicParsing="false" styleClass="left_menubutton" text="Berichte" toggleGroup="$leftmenu" />
+                     </children>
+                     <padding>
+                        <Insets top="15.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>
+         <top>
+            <AnchorPane prefHeight="175.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="79.0" text="Personendosimetrie">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </top>
+         <center>
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="25.0" orientation="VERTICAL" vgap="25.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefWidth="225.0" styleClass="center_menu" stylesheets="@ModernTheme.css" text="Bitte wählen Sie aus." />
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefWidth="225.0" styleClass="center_menu" stylesheets="@ModernTheme.css" text="Personenübersicht" />
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefWidth="225.0" styleClass="center_menu" stylesheets="@ModernTheme.css" text="HFK-Liste importieren" />
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefWidth="225.0" styleClass="center_menu" stylesheets="@ModernTheme.css" text="Berichte" />
+               </children>
+               <BorderPane.margin>
+                  <Insets left="15.0" top="65.0" />
+               </BorderPane.margin>
+            </FlowPane>
+         </center>
+      </BorderPane>
+      <MenuBar styleClass="menu_bar" stylesheets="@ModernTheme.css">
+        <menus>
+          <Menu mnemonicParsing="false" text="Datei">
+            <items>
+              <MenuItem fx:id="exit" mnemonicParsing="false" onAction="#exitApplication" text="Beenden">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+   <stylesheets>
+      <URL value="@ModernTheme.css" />
+      <URL value="@ModernTheme.css" />
+   </stylesheets>
+</AnchorPane>
