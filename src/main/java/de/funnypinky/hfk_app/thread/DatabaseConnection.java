@@ -14,11 +14,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.hibernate.SessionFactory;
+
 public class DatabaseConnection {
 	String currentPath = System.getProperty("user.dir");
 	String dataBasePath = currentPath + "\\database\\";
 	String dataBaseName = "data.db";
 	String url = "jdbc:sqlite:" + dataBasePath+dataBaseName;
+	private Connection conn;
 
 	public boolean connect() {
 		if(!Files.exists(Paths.get(dataBasePath))) {
@@ -30,13 +33,24 @@ public class DatabaseConnection {
 			}
 		}
 		
-		try (Connection conn = DriverManager.getConnection(url)) {
+		try  {
+			this.conn = DriverManager.getConnection(url);
+			SessionFactory factory;
 			System.out.println("Connection to SQLite has been established.");
 			return true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
+		}
+	}
+	
+	public void disconnect() {
+		try {
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

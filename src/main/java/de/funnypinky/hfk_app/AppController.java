@@ -28,6 +28,7 @@ public class AppController implements Initializable {
 
 	@FXML
 	protected void exitApplication() {
+		dbConn.disconnect();
 		System.exit(0);
 	}
 

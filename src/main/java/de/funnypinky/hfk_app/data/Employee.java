@@ -16,7 +16,7 @@ public class Employee {
 	private String name;
 	private String firstname;
 	private DateTime birthday;
-	private final long uniqueID = DateTime.now().getMillis();
+	private long uniqueID;
 	private final ArrayList<HFKentry> hfkList = new ArrayList<>();
 
 	public Employee(String name, String firstname) {
